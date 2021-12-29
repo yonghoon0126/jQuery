@@ -1,0 +1,19 @@
+* jquery plugin 사이트
+1. plugins.jquery.com
+2. githubl.com/jquery/plugins.jquery.com
+3. jquerylist.com
+4. http://jqueryui.com
+5. http://jquery.malsup.com/cycle/
+6. http://medienfreunde.com/lab/innerfade/ 
+  -InnerFade플러그인
+7. 무한스크롤 사이트 http://mixsh.com/
+8. http://datatables.net
+9. http://srobbin.com/jquery-plugins/approach/
+--마우스 거리를 사용해서 애니메션 적용
+10. fancybox.net
+11. http://interface.eyecon.ro
+12. http://easings.net/
+http://jqueryui.com/easing/
+
+http://richhollis.github.io/vticker/ 한줄 올리기
+http://www.pixastic.com -다양한 이미지효과 적용
