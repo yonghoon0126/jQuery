@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+	 <head>
+	  <meta charset="UTF-8">
+	  <title>Document</title>
+	 		
+		<style>
+			
+			body{
+				background : #777;	color : white;
+				}
+
+			a{
+				color : #00ccff;
+			}
+			
+			h1{
+				width : 80%;	margin : 10px	auto;
+				}
+			
+			p{
+				margin : 10px	10%;
+			}
+			
+			span.tooltip{
+						line-height : 1.5;	color : white;	width : 200px;
+						background : #ff9900;	border : 2px	solid	white;
+						padding : 1em;	font-size : small;
+			}
+
+		</style>
+	
+ 
+		<script src = "js/jquery-3.6.0.js"></script>
+		
+			<script>
+ 
+				$(function(){
+					$('span.tooltip').css({
+						opacity:'0.8',			// 투명도
+						position:'absolute',	// 위치
+						display:'none'
+					});
+				
+				$('a').mouseover(function(){		// 마우스를 올렸을 때
+					$('span.tooltip').fadeIn();
+				
+				}).mouseout(function(){				// 마우스가 떠났을 때
+					$('span.tooltip').fadeOut();
+				
+				}).mousemove(function(e){
+					$('span.tooltip').css({
+						'top':e.pageY+10+'px',		// 현재 페이지에 y좌표지점
+						'left':e.pageX+10+'px'		// 현재 페이지에 x좌표지점
+
+					});		// css
+				});		// mouse over
+
+				});		// end
+
+				
+			</script>
+
+	 </head>
+	 
+	 
+	
+		 
+	 <body>
+		
+		<h1>Tooltip 설정하기</h1>
+			<p>
+				<a href="#">툴팁 연습하기</a>
+					<span class="tooltip">
+						이런것이 바로 툴팁이란 것입니다...
+						InnerFade is a small plugin for the jQuery-JavaScript-Library. <br>
+						It's designed to fade you any element inside a container in and out.
+
+						These elements could be anything you want, e.g. <br>
+						images, list-items, divs. <br>
+						Simply produce your own slideshow for your portfolio or advertisings. Create a newsticker or do an animation.
+				
+					</span>
+						jQuery is a fast, small, and feature-rich JavaScript library. It makes things like HTML document traversal and manipulation, event handling, animation, and Ajax much simpler with an easy-to-use API that works across a multitude of browsers. With a combination of versatility and extensibility, jQuery has changed the way that millions of people write JavaScript.
+			</p>
+
+
+	 </body>
+</html>
+

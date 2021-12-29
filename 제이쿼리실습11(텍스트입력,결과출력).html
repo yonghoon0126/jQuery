@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en">
+	 <head>
+	  <meta charset="UTF-8">
+	  <title>Document</title>
+		
+		<style>
+
+			div{
+					padding : 5px;
+					width : 300px;
+					}
+			
+			.item{
+						float : left;
+						width : 100px;
+					}
+
+		</style>
+	
+		<script src = "js/jquery-3.6.0.js"></script>
+		<script src = "js/jquery-migrate-1.4.1.min.js"></script>
+
+			<script>
+
+				function join(){					// 밑에 4번째 방법 setTimeout
+					location='gaib.html';
+				}
+
+				$(function(){
+					$('#userId').focus();
+				
+					$('#result').click(function(){
+						$('#d').html('아이디 : '+ $('#userId:text').val()+
+						'<br>비밀번호 : '+$('#pwdConfirm:password').val());
+					});
+
+					
+					//회원가입
+					$('#regBtn').click(function(){
+							invalidItem();			//유효성 체크할 함수 호출
+					});
+
+
+					// 취소버튼 눌렀을 때
+					$('#resBtn').click(function(){
+						clearInput();			//	이전에 입력값 모두 제거
+					});
+					
+
+					// 유효성 체크할 함수
+					function invalidItem(){
+						//아이디의 텍스트 박스의 속성값이 비었으면 실행
+						if($('#userId:text').attr('value')==""){
+							alert("아이디를 입력하세요.");
+							$('#userId').focus();
+							return false;
+					}//		if end
+					
+				
+					//	이름 체크
+					var userName=$('#userName:text').attr('value');
+					if(userName==""){
+						 alert("이름을 입력하세요.");
+						 $('#userName').focus();
+						 return false;
+					}//	if end
+					
+					
+					// 비번 체크	
+					if( ( $('#pwd:password').val()=="" )  ||	
+						  $('#pwdConfirm:password').val()=="" ){
+							alert("암호를 입력하세요");
+							$('#pwd').focus();
+							return false;	
+				   }	// if end
+				
+					
+					// 비번과 확인 체크
+					  if($('#pwd:password').val() !=
+						  $('#pwdConfirm:password').val()){
+						
+						alert("암호가 일치하지 않습니다");
+						$('#pwd').focus();
+						return false;
+						}	// if end
+						
+						//alert(userName+'님 회원가입을 축하 합니다.');
+
+						//f.submit();		// 1. <form action ='gaib.html'>
+
+						//setTimeout("location='gaib.html'",3000);		// 2.  3초 후에 'gaib.html'로 이동
+
+						//location='gaib.htmnl';		// 3.		
+
+						setTimeout("join()",3000);		// 4. 	
+
+
+
+					}// invalidItem()
+
+
+					// 입력값 모두 삭제
+					function clearInput(){
+						$('#userId:text').attr('value','');
+						$('#userName:text').attr('value','');
+						$('#pwd:password').attr('value','');
+						$('#pwdConfirm:password').attr('value','');
+						$('#userId').focus();
+						$('#d').html('');
+					}	// clearInput()
+
+				});		// end
+
+		
+			</script>
+	 </head>
+	 
+	 
+	 
+	 <body>
+
+		<center>
+		
+			<div>
+				<span class = "item">아이디</span>
+				<input type = "text"		id = "userId"		value="">
+			</div>
+
+			<div>
+				<span class = "item">이름</span>
+				<input type = "text"		id = "userName"		value="">
+			</div>
+			
+			<div>
+				<span class = "item">암호</span>
+				<input type = "password"		id = "pwd"		value="">
+			</div>
+			
+			<div>
+				<span class = "item">암호확인</span>
+				<input type = "password"		id = "pwdConfirm"		value="">
+			</div>
+
+			<form name = 'f'	action = "gaib.html">
+				<input type="button" id = "regBtn"		value="회원가입">
+				<input type="button" id = "result"		value="결과">
+				<input type="button" id = "resBtn"		value="취소">
+			<form>
+			
+			<div id="d"></div>
+
+		</center>
+
+	 </body>
+</html>

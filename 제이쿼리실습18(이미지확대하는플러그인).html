@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+	 <head>
+	  <meta charset="UTF-8">
+	  <title>Document</title>
+	 		
+	 		<style>
+	 			img{
+	 					width:400px;
+	 					height:400px;
+	 					}
+	 			
+	 		</style>
+	 	
+	 
+	 		<script src = "js/jquery-3.6.0.js"></script>
+			<!--호환성 문제 해결하는 플러그인 -->	 
+	 		
+			<script src = "js/jquery-migrate-1.2.1.min.js"></script>
+			<!-- 플러그인 삽입 : 마우스 위치에 해당하는 부분이 확대되어 표시되는 효과 -->	 
+
+	 		<script src = "js/jquery.magnify-1.0.2.js"></script>
+	 
+	 			<script>
+	 
+	 				$(function(){
+						$('#d1').magnify();
+	 				});		// end
+	 		
+	 			</script>
+	 </head>
+	 
+	 
+	<!-- 
+	bigimg0.jpg 화면에 출력할 이미지,
+	smallimg0.jpg 이미지에 마우스 위치하면 부분적으로 확대되며 나타나는 효과를 의한 이미지
+	 -->
+		 
+	 <body>
+
+		<a href = "images/bigimg0.jpg"	id = "d1">
+		<img src = "images/smallimg0.jpg"></a>
+
+	 </body>
+</html>
+

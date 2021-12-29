@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+	 <head>
+	  <meta charset="UTF-8">
+	  <title>Document</title>
+		
+		<style>
+			div{
+				width : 100px;
+				height : 100px;
+				border : 1px		solid		#000;
+				cursor : pointer;	margin : 4px;	float : left;
+				text-align : center;
+				}
+			.toggleStyle{
+								background : blue;	color : white;
+								}
+		</style>
+	
+		<script src = "js/jquery-3.6.0.js"></script>
+
+			<script>
+				$(function(){
+					$('div').hover(function(){
+						if($(this).hasClass('toggleStyle')){
+							$(this).removeClass('toggleStyle');
+						}else{
+							$(this).addClass('toggleStyle');
+						}
+					
+					
+					});		// div
+
+				
+				});		// end
+			
+		</script>
+	 </head>
+	 
+	 
+	 
+	 <body>
+
+		<div>hasClass()는 선택된 엘리먼트에 해당 클래스가</div>
+		<div>적용되어 있으면 true를 리턴하고</div>
+		<div>아직 적용되어 있지 않으면 false를 리턴한다.</div>
+	  
+	 </body>
+</html>
+

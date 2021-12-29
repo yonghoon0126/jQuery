@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+	 <head>
+	  <meta charset="UTF-8">
+	  <title>Document</title>
+	 		
+		<style>
+			
+			*{		/* 전체 초기화 */
+				margin : 0;	padding : 0;
+			}
+
+			dl{
+				width : 400px;	margin : 50px	auto;		/* 가로에 가운데 정렬 */
+				}
+
+			dl dt{
+					background : powderblue;	cursor : pointer;
+					border-bottom : 3px		solid	red;
+				}
+
+			dl dd{
+					border : 3px	solid	lime;	border-top : none;	height : 300px;
+				}
+
+			
+		</style>
+	
+ 
+		<script src = "js/jquery-3.6.0.js"></script>
+		
+			<script>
+ 
+				$(function(){
+					// 초기화면 첫번째 제목만 display되고 나머지 제목은 none
+					$('dd:not(:first)').css('display','none');
+
+					// 제목줄을 클릭했을 때
+					$('dl dt').click(function(){
+						
+						// (dl dt)==this의 다음 dd가 보이지 않는 상태라면 아래 실행
+						if($('+dd',this).css('display')=='none'){
+						
+						// 현재 선택한 제목줄의 형제요소 dd요소가 위로 말아올라간다.
+						$(this).siblings('dd').slideUp('slow');
+						
+						// 현재 선택한 요소의 dd가 아닌 다음요소의 dd가 말아서 내려간다.
+						$('+dd',this).slideDown('slow');
+						}
+					});
+			
+				
+				});		// end
+
+ 
+				
+			</script>
+
+	 </head>
+	 
+	 
+	
+		 
+	 <body>
+		<div id = "container"></div>
+		
+		<dl>
+			
+			<dt>jQuery</dt>
+				<dd>
+					<p>32회 공인중개사 합격자가 발표됐습니다. 한국산업인력공단에 의하면 합격자는 총 2만6913명으로 지난해 보다 
+					1만명가량이 증가했습니다. 2차 기준 합격률도 29.07%로 지난해(22.01%)보다 올랐습니다. 이미 포화된 시장에 
+					신규 합격생들까지 쏟아지면서 대부분의 지역에서는 과당경쟁을 우려하고 있습니다. 상대평가로의 전환까지 이야기가 나오는 등 
+					상황은 좋지 않습니다.
+					</p>
+				</dd>
+				
+			<dt>HTML</dt>
+				<dd>
+					<p>
+					필자가 근무하고 있는 법인에서는 가맹사업을 총괄하고 있기에 다양한 공인중개사분들을 만납니다. 
+					창업에 대한 고민을 하는 분들이기에 어디에 차리는 것이 좋은 지, 매물을 어떻게 확보할 지, 손님은 얼마나 올지 등 
+					하나부터 열까지 모두가 고민거리입니다. 신규로 창업하는 분들도 있지만 기존에 중개업소를 운영하는 분들도 같은 고민을 합니다. 
+					다양한 고민들이 있지만 이분들의 공통적인 특징은 화가 많이 나 있다는 겁니다.
+					</p>
+				</dd>
+			
+			<dt>JSP</dt>
+				<dd>
+					<p>일단 중개보수에 화가 나 있습니다. 최근 중개보수가 거의 반값으로 낮춰지다 보니 생계가 어렵다고 합니다. 
+					사무실 임대료나 부대비용은 큰 변화가 없는데도 불구하고 본의 아니게 매출이 줄어들었습니다. 정부의 잘못된 정책으로 
+					집 값과 전세 값이 올랐는데 왜 그 피해를 공인중개사들이 고스란히 받아야 하느냐고 억울해합니다.
+					</p>
+				</dd>
+			
+		</dl>
+
+
+	 </body>
+</html>
+

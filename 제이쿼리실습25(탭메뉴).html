@@ -1,0 +1,129 @@
+
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+	<style type="text/css">
+		*{
+			margin:0;	padding:0;
+			}
+
+		#container{
+					width:500px;margin:50px auto;
+					}
+		ul.tab{
+				padding:0;
+				}
+
+		ul.tab li{
+					list-style-type:none; width:100px;height:40px;float:left;
+					}  
+
+		ul.tab li a{
+					outline:none;background:url('images/tab.jpg');
+					display:block;color:blue;line-height:40px;
+					text-align:center;
+					}
+		
+		ul.tab li a.selected{
+							background:url('images/tab_selected.jpg');
+							text-decoration:none;color:#333;cursor:default;
+							}
+		
+		ul.pannel {
+					clear:both; border:1px solid 
+				   #9fb7d4;border-top:none;padding:0;
+					}
+		
+		ul.pannel li{
+					list-style-type:none;padding:10px;
+					 text-indent:1em;color:#333;
+					 }
+
+	</style>
+	
+		<script src="js/jquery-1.8.1.min.js">	</script>
+		
+		<script>
+		
+			$(function(){
+			//selected 클래스를 가진 tab만 제외하고 숨김 
+			//(지금선택된 것에 href값을 가져와서 가져온 요소만 제외하고 나머지 숨김
+				$('ul.pannel li:not('+$('ul.tab li a.selected').attr('href')+')').hide();
+				
+				$('ul.tab li a').click(function(){//탭제목
+						$('ul.tab li a').removeClass('selected');
+					//this는 지금 클릭한 요소의 href값에 해당한 부분에 클래스 부여
+						$(this).addClass('selected');
+						
+						$('ul.pannel li').hide();//비선택된 전부를 감추기
+						//선택된 요소의 탭명에 li요소를 보여줘라
+						$($(this).attr('href')).show();
+						return false;//링크 무시
+				});//click
+		
+			});// end
+		</script>
+	 </head>
+
+		 <body>
+		
+			 <div id="container">
+				<ul class="tab"><!-- 탭 제목 ul.tab li -->
+					<li><a href="#tab1" class="selected">JavaScript</a></li>
+					<li><a href="#tab2">CSS</a></li>
+					<li><a href="#tab3">HTML</a></li>
+					<li><a href="#tab4">jQUERY</a></li>
+					<li><a href="#tab5">XHTML</a></li>
+				</ul>
+				
+				<ul class="pannel"><!-- 패널명 -->
+					<li id="tab1">
+						1. South Korea's new coronavirus cases hit an all-time high on Wednesday as infections continued to surge around the country amid waning immunity and colder weather.
+
+						The country confirmed 7,175 new COVID-19 infections, raising the total caseload to 489,484, according to the Korea Disease Control and Prevention Agency (KDCA).
+
+						The daily tally was up by 2,221 from a day earlier, the biggest daily jump since the pandemic began early last year. The previous record of 5,352 was set on Saturday. The average daily infection cases were 5,012 for the seven days ending Tuesday.
+
+					
+				</li>
+				<li id="tab2">
+					2. South Korea's new coronavirus cases hit an all-time high on Wednesday as infections continued to surge around the country amid waning immunity and colder weather.
+
+					The country confirmed 7,175 new COVID-19 infections, raising the total caseload to 489,484, according to the Korea Disease Control and Prevention Agency (KDCA).
+
+					The daily tally was up by 2,221 from a day earlier, the biggest daily jump since the pandemic began early last year. The previous record of 5,352 was set on Saturday. The average daily infection cases were 5,012 for the seven days ending Tuesday.
+
+		
+				</li>
+				<li id="tab3">
+					3. South Korea's new coronavirus cases hit an all-time high on Wednesday as infections continued to surge around the country amid waning immunity and colder weather.
+
+					The country confirmed 7,175 new COVID-19 infections, raising the total caseload to 489,484, according to the Korea Disease Control and Prevention Agency (KDCA).
+
+					The daily tally was up by 2,221 from a day earlier, the biggest daily jump since the pandemic began early last year. The previous record of 5,352 was set on Saturday. The average daily infection cases were 5,012 for the seven days ending Tuesday.
+
+	
+				</li>
+				<li id="tab4">
+					4. South Korea's new coronavirus cases hit an all-time high on Wednesday as infections continued to surge around the country amid waning immunity and colder weather.
+
+					The country confirmed 7,175 new COVID-19 infections, raising the total caseload to 489,484, according to the Korea Disease Control and Prevention Agency (KDCA).
+
+					The daily tally was up by 2,221 from a day earlier, the biggest daily jump since the pandemic began early last year. The previous record of 5,352 was set on Saturday. The average daily infection cases were 5,012 for the seven days ending Tuesday.
+
+				</li>
+				<li id="tab5">
+					5. South Korea's new coronavirus cases hit an all-time high on Wednesday as infections continued to surge around the country amid waning immunity and colder weather.
+
+					The country confirmed 7,175 new COVID-19 infections, raising the total caseload to 489,484, according to the Korea Disease Control and Prevention Agency (KDCA).
+
+					The daily tally was up by 2,221 from a day earlier, the biggest daily jump since the pandemic began early last year. The previous record of 5,352 was set on Saturday. The average daily infection cases were 5,012 for the seven days ending Tuesday.
+
+		
+				</li>
+			</ul>
+		 </div>
+	 </body>
+</html>

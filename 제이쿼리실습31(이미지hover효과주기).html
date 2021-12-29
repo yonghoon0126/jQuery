@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+	 <head>
+	  <meta charset="UTF-8">
+	  <title>Document</title>
+	 		
+		<style>
+
+			img{
+				width : 250px;	height : 250px;	border:0;
+				}
+			
+			h2{
+				margin-left:10px;	clear:both;
+				}
+			
+		</style>
+	
+ 
+		<script src = "js/jquery-3.6.0.js"></script>
+		
+			<script>
+ 
+				$(function(){
+					$('img.hover').hover(function(){	// 마우스가 오버시에 흑백이미지 임시변수에 저장
+						var currentImg=$(this).attr('src');
+
+						// 컬러 이미지를 소스에 설정
+						$(this).attr('src',$(this).attr('name'));
+
+						// name에 (임시변수에 흑백이미지를 name에 넣기
+						$(this).attr('name',currentImg);
+					},
+
+					function(){		// 마우스가 벗어났을 때
+						var currentImg=$(this).attr('src');		// 컬러 이미지를 임시변수에 저장
+						$(this).attr('src',$(this).attr('name'));	// 흑백 이미지를 소스에 설정
+						$(this).attr('name',currentImg)	// 임시변수에 있는 컬러이미지를 name에 넣기
+					});		// 1-hover
+
+					// <h4>에 선택한 이미지에 title이 출력하기
+					$('img.hover').hover(function(){
+						var largeAlt=$(this).attr('title');		// 오버된 이미지에 제목을 임시변수에 저장
+						$('#project').html(' '+largeAlt);	// <h4>에 태그문장으로 설정
+						return false;	// 이벤트 무시
+					},
+
+					function(){
+						$('#project').html('');
+						return false;
+					});	// 2-hover
+
+					// 전체<div>
+					$('#s1').hover(		// hover시 처리
+						function(){
+							$(this).css({cursor:'pointer'});
+						},
+						function(){		// 벗어 났을때 글자색 변경
+							$(this).css({color:'#ff0066'});
+						});		// 3-hover
+				
+				});		// end
+
+			</script>
+
+	 </head>
+	 
+	 
+	
+		 
+	 <body>
+
+		<div id = "s1">
+			<img name = "images/im15.jpg"	class = "hover"		src = "images/im15gray.jpg"	
+			title = '선글라스'>
+
+			<img name = "images/im17.jpg"	class = "hover"		src = "images/im17gray.jpg"	
+			title = '똘이 사진'>
+			
+			<img name = "images/image6.jpg"	class = "hover"		src = "images/image6GRAY.jpg"	
+			title = '옆 모습'>
+
+			<h2 id = 'project'></h2>
+
+		</div>
+
+
+
+	 </body>
+</html>
+

@@ -1,0 +1,148 @@
+
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+	
+	<style type="text/css">
+		
+		*{margin:0;padding:0;border:0;}
+		
+		body{background:black;}
+		
+		#contanier{width:1000px;margin:20px auto;}
+		
+		#navi{width:300px;float:left;}
+		
+		#navi li{list-style-type:none; width:150px;float:left;}
+		
+		#navi li img{border:3px solid white;}
+		
+		#main{width:650px;float:right;}
+		
+		#main img{position:absolute; border:3px solid white;}
+		
+		#caption { background:url(images/captionBg.png) repeat; 
+				   border:#CCC 1px thin; margin-left:5px;
+				   padding:10px; position:relative; color:#ccffff }
+	</style>
+
+	<script src="js/jquery-1.8.1.min.js"></script>
+	
+	<script>
+		
+		$(document).ready(function(){
+			$('#navi li em').hide();
+			//왼쪽에 있는 이미지를 클릭했을때
+			$('#navi a').click(function(){
+				$("#caption").remove();
+				//오른쪽에 <div>앞에 왼쪽에 이미지를 가져다가  앞에 삽입
+				$('#main img').before("<img src='"+$(this).attr("href")+"' alt=''>");
+		//------------------------------------------------------
+				var msg = $(this).next("em").text();
+				$("#main").append("<div id ='caption'></div>");
+				$("#main #caption").text(msg);
+				console.log("기본 캡션높이 "+$("#main #caption").height());
+				var posY = $("#main #caption").height()-470;
+				var top1=$("#main #caption").height();
+				//top= 22(top)-470=>-448,108-470=>-362 // 22-(-448)=470 
+				//이미지 488px
+				console.log("posY "+posY+"\n 캡션의 높이 :"+(top1-posY));
+				$("#main #caption").animate({top:"-="+posY+"px"},300);
+		//------------------------------------------------------
+		//예) phto1_thum.jpg를 클릭했을 때 phto1_thum.jpg를 출력함
+				console.log("클릭한 이미지는 "+$('img',this).attr('src'));
+
+				/* last를 지정하면 원래 이미지를 가리킴. 원 이미지를 화면에 
+				사라지게하면, 새이미지가 화면에 표시되고,
+				화면에만 원이미지가 사라졌지 실제 사라진 건 
+				아니고(자리차지 하고 있다),
+				그래서 $(this).remove();를 해주어 자리자치를 삭제해 
+				주어야 한다.*/
+				//초기 이미지 서서히 사라지게
+				$('#main img:last').fadeOut('slow',function(){
+					alert('사라지는 이미지 : '+$(this).attr('src'));//사라지는 이미지파일 보기(photo1.jpg)
+					$(this).remove();//여기서 this=='#main img:last'을 가리킴
+				});
+				return false;//링크이벤트 무시
+
+			});//click
+		});//ready end
+	</script>
+ </head>
+	
+	
+	
+	<body> 
+		
+		<div id="contanier">
+			<div id="navi"><!-- 썸네일 -->
+				<ul>
+					<li>
+						<a href="images/photo1.jpg">
+							<img src="images/photo1_thum.jpg" alt="쌍제리아"/>
+						</a>
+						<em>영어야1</em>
+					</li>
+				
+					<li>
+						<a href="images/photo2.jpg">
+							<img src="images/photo2_thum.jpg" alt="장미"/>
+						</a>
+						<em>18세기 말에 아시아의 각 원종이 유럽에 도입되고 이들 유럽과 아시아 원종간의 교배가 이루어져 화색이나 화형은 물론 사계성이나 개화성 등 생태적으로 변화가 많은 품종들이 만들어졌다. 18세기 이전의 장미를 고대장미(old rose), 19세기 이후의 장미를 현대장미(modern rose)라 한다.
+						[네이버 지식백과] 장미 [Rose, 薔薇] (경기도농업기술원)	</em>
+					</li>
+					
+					<li>
+						<a href="images/photo3.jpg">
+							<img src="images/photo3_thum.jpg" alt="바다"/>
+						</a>
+						<em>영어야3</em>
+					</li>
+					
+					<li>
+						<a href="images/photo4.jpg">
+							<img src="images/photo4_thum.jpg" alt="문"/>
+						</a>
+						<em>영어야4</em>
+					</li>
+					
+					<li>
+						<a href="images/photo5.jpg">
+							<img src="images/photo5_thum.jpg" alt="바다"/>
+						</a>
+						<em>영어야5</em>
+					</li>
+					
+					<li>
+						<a href="images/photo6.jpg">
+							<img src="images/photo6_thum.jpg" alt="자양"/>
+						</a>
+						<em>영어야6</em>
+					</li>
+					
+					<li>
+						<a href="images/photo7.jpg">
+							<img src="images/photo7_thum.jpg" alt="하늘"/>
+						</a>
+						<em>영어야7</em>
+					</li>
+					
+					<li>
+						<a href="images/photo8.jpg">
+							<img src="images/photo8_thum.jpg" alt="건물"/>
+						</a>
+						<em>영어야8</em>
+					</li>
+				</ul>
+			</div>
+			
+			<!-- 클릭했을 오른쪽에 나오는 이미지 -->
+			<div id="main">
+				<img src="images/photo1.jpg" alt=""/>
+			</div>
+		</div>
+
+	</body>
+</html>

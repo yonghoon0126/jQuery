@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+	 <head>
+	  <meta charset="UTF-8">
+	  <title>Document</title>
+		
+		<style>
+			img{
+					width : 80px;
+					height : 80px;
+					margin-left : 50px;
+					}
+		</style>
+	
+		<script src = "js/jquery-3.6.0.js"></script>
+
+			<script>
+				$(function(){
+					$('#sel').change(function(event){
+						var imgSrc=$(this).val();		// 선택한 이미지값 얻기
+						console.log(event+"\n"+imgSrc);
+						
+						//<img src = imgSrc>값 설정
+						$('#img').attr('src',imgSrc);
+						console.log("\n..."+$('#img').attr('src'));
+					
+					}).change();		// sel
+			
+				});		// end
+			
+		</script>
+	 </head>
+	 
+	 
+	 
+	 <body>
+		
+		<table>
+		<tr>
+			<td>
+				<select id = "sel">
+					<option value = "images/strawberry.gif">딸기</option>
+					<option value = "images/banana.gif">바나나</option>
+					<option value = "images/apple.gif"	selected>사과</option>
+			</td>
+			<td>
+				<img id = 'img'>
+			</td>
+		</tr>
+		</table>
+
+
+
+	 </body>
+</html>

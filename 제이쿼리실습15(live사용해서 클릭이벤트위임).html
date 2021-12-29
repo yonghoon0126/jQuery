@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+	 <head>
+	  <meta charset="UTF-8">
+	  <title>Document</title>
+		
+		<style>
+		
+			p{
+				background:yellow;
+				font-weight:bold;
+				cursor:pointer;
+				padding:5px;
+				}
+
+		</style>
+	
+
+		<script src = "js/jquery-3.6.0.js"></script>
+		<script src = "js/jquery-migrate-1.4.1.min.js"></script>
+
+			<script>
+
+				$(function(){
+					var i = 0; sum = 0;
+					// 이벤트를 계속 위임한다.
+					$('p').live('click',function(){		// on, one, live
+						i++;
+						sum+=i;
+						$(this).after("<p>또 다른 문단이야!!!"+i+"</p>");
+						if(i >=5){
+							alert("클릭한 수 = "+sum);
+							return false;
+						}
+					});
+			
+				});		// end
+		
+			</script>
+	 </head>
+	 
+	 
+	 
+	 <body> 
+
+		<p>Click Me!!!!!</p>
+	
+	 </body>
+</html>
+
+<!-- 
+
+* 기존 이벤트 연결 메소드 대체(통합)
+	1. bind() : $(selector).on(eventName. eventHandler)
+	2. live() : $(document).on(eventName. 'selector', eventHandler)
+	3. delegate() : $('selector').on(eventName. 'selector', eventHandler)
+
+* 기존의 이벤트 연결 제거 메소드 대체 (해당 이벤트의 모든 이벤트 핸들러를 제거하고자 하면 eventHandler를 생략한다.
+	1. unbind() : $(selector).off(eventName, eventHandler)
+	2. die() : $(document).off(eventName, 'selector', eventHandler)
+	3. undelegate() : $(document).off(eventName, 'selector', eventHandler)
+
+live('이벤트명', 함수) : 앞으로 새로 만들 요소에 이벤트 핸들러 함수를 연결하는 선택요소
+
+on('이벤트명', 함수) : 이벤트 연결 메소드
+one('이벤트명'. 함수) : 현재요소 한번만 이벤트 발생
+
+-->

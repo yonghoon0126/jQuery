@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+	 <head>
+	  <meta charset="UTF-8">
+	  <title>Document</title>
+	 		
+		<style>
+			
+			body{
+				font-family:Verdana, Geneva;	font-size:13px;
+				}
+
+			#colorPicker div{
+								float:left;	width:70px;	height:70px;
+								text-align:center;	color:#000;
+								border:#000	thin	solid;	margin-right:5px;
+							}
+			
+		</style>
+	
+ 
+		<script src = "js/jquery-3.6.0.js"></script>
+		<script src = "js/jquery-ui-1.13.0.js"></script>
+		
+			<script>
+ 
+				$(function(){
+					$('#colorPicker div').each(function(index){
+						$(this).css('background-color',$(this).text());
+						console.log(index);
+					});
+
+					$('#colorPicker div').click(function(){
+						// {'background-color':#ff333} : ui 없어도 실행됨 수치형으로 인식
+
+						var color=$(this).text();
+						console.log(color);
+						$('body').animate({'background-color':color},1000);
+						// animate() : 비수치형에는 속성값을 줄 수 없다.
+						// (작동하기 위해서는 ui를 적용해야 함)
+					
+					});
+				
+				});		// end
+				
+			</script>
+
+	 </head>
+	 
+		 
+	 <body>
+		
+		<div id = "colorPicker">
+		<div>red</div>
+		<div>maroon</div>
+		<div>#993300</div>
+		<div>#ff9900</div>
+		<div>yellow</div>
+		<div>#99ff33</div>
+		<div>#ff99ff</div>
+		</div>
+
+	 </body>
+</html>
+

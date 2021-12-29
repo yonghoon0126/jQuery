@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+	 <head>
+	  <meta charset="UTF-8">
+	  <title>Document</title>
+		
+		<style>
+			#console{
+						margin : 20px;		font-size : 30px;		color : red;
+						}
+		
+		</style>
+	
+		<script src = "js/jquery-3.6.0.js"></script>
+
+			<script>
+				$(function(){
+					$('input').keyup(function(){
+						// input에 value값을 얻어오기
+						var value=$(this).val();
+						report(value);		// 함수 호출(value넣어주면)
+					});	
+				
+				$('button').click(function(){
+					$('input').val('val 메소드 호출중..');
+					$('input').keyup();		// 누르고, 떼고
+				});	
+
+				function report(msg){			// value값을 넘겨 받아서
+					$('#console').text(msg);	// div에 텍스노드에(컨텐츠부분에)출력
+				}
+
+				});		// end
+			
+		</script>
+	 </head>
+	 
+	 
+	 
+	 <body>
+		<button>reset</button>
+			<input type = "text"		value = 'val 메소드 연습 중...'		size = '80'>
+			<div id  = "console"></div>
+
+
+
+
+
+	 </body>
+</html>
+<!-- 
+	선택요소.val() : 선택요소에 값을 얻어오기
+	선택요소.val('값') : 선택요소에 값을 설정
+	선택요소.text() : 선택요소에 텍스트 노드를 얻어오기
+	선택요소.text('값') : 선택요소에 텍스트 노드를 설정하기 
+	-->

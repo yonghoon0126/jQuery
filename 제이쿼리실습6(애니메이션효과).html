@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+	 <head>
+	  <meta charset="UTF-8">
+	  <title>Document</title>
+		
+		<style>
+			*{margin : 0px;		padding : 0px;}
+			
+			#box1{
+						width : 100px;		height : 100px;
+						background : #f00;
+						position : relative;
+						border-radius : 50px;
+						}
+		</style>
+	
+		<script src = "js/jquery-3.6.0.js"></script>
+
+			<script>
+				
+				$(function(){
+
+				var cnt=0;		// setInterval(처리할 함수, 시간)
+				// ({이벤트 속성},속도,콜백함수)
+				// 속성 : '값', 속성 : '값'...n
+
+				var s=setInterval(function(){			// 5회 실행 후 중지
+					cnt++;
+					if(cnt==5){
+						clearInterval(s);		// 중지하기
+					}
+
+
+					$('#box1').animate({
+						left : '0px',		// 가로기준점이 0
+						width : '200px',
+						height : '200px'
+					},1000).animate({
+						left : '500px',		// 가로기준점이 0에서 오른쪽으로 500
+						width : '50px',
+						height : '50px',
+						opacity : 0.3,
+						top : '0px'
+					},300).animate({	// box
+						left : '500px',		// 오른쪽500에서 아래 500
+						width : '50px',
+						height : '50px',
+						opacity : 1,
+						top : '500px'
+					},300).animate({	// box
+						left : '0px',		// 아래500에서 왼쪽으로 1000
+						width : '50px',
+						height : '50px',
+						opacity : 1,
+						top : '500px'
+					},300).animate({	// box
+						left : '0px',		// 가로기준점이 0에서 위로 1000
+						width : '50px',
+						height : '50px',
+						opacity : 1,
+						top : '0px'
+					},300);					// box
+
+
+				},1000);		// setInterval
+				
+				
+				});		// end
+			
+			</script>
+		 
+	 
+	 </head>
+	 
+	 
+	 
+	 <body>
+		<div id = "box1">박스~ 박스1</div>
+	  
+	 </body>
+</html>
+
+<!-- 
+	애니메이션(Animation) :
+	선택요소를 움직이거나 크기를 변형시킬 때에는 애니메이션 효과를 적용합니다.
+
+	*콜백함수 : 애니메이션 효과의 진행이 끝난 후에 실행되는 함수,
+					생략 가능
+
+	형식)
+	$('선택요소').animate( {애니메이션 속성}, 반응속도, 콜백함수);
+	
+	*반응속도 : slow, normal, fast, milisecond
+	
+	*콜백함수 : 객체 상태의 변화(이벤트)가 발생했을 경우
+	이러한 사실을 함수를 통해 전달(키보드, 마우스, Ajax)
+ -->

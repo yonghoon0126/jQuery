@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+	 <head>
+	  <meta charset="UTF-8">
+	  <title>Document</title>
+		
+		<style>
+		
+
+		</style>
+	
+
+		<script src = "js/jquery-3.6.0.js"></script>
+
+			<script>
+
+				$(function(){
+					var i = 0;
+					$('img').css('width',250);		// 크기 설정
+
+					var s = setInterval(function(){
+						$('img').first().appendTo('body');
+						i++;
+						if(i>=5){
+							alert(i+"번 반복 끝.");
+							clearInterval(s);
+						}
+					},1000);		// setInterval 반복
+			
+				});		// end
+		
+			</script>
+	 </head>
+	 
+	 
+	 
+	 <body>
+		<img src="images/Koala.jpg">
+		<img src="images/Lighthouse.jpg">
+		<img src="images/Hydrangeas.jpg">
+		<img src="images/Jellyfish.jpg">
+		<img src="images/Desert.jpg">
+	
+	 </body>
+</html>
+
+<!-- 
+* setInterval(처리할 함수, 지연시간)
+	- 반복적으로 자동 실행하는 함수
+	- 일정시간마다 함수를 반복해서 실행
+
+* id=setTimeout(처리할 함수, 지연시간)
+	- 일정시간 후에 함수를 한번만 실행
+
+* clearTimeout(id)
+	- 일정시간 후에 함수를 한번 실행하는 것 중지
+
+* clearInterval(id)
+	- 일정시간마다 함수를 반복하는 것 중지
+ -->

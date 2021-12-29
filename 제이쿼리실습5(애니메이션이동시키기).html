@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+	 <head>
+	  <meta charset="UTF-8">
+	  <title>Document</title>
+		
+		<style>
+			*{margin : 0px;		padding : 0px;}
+			
+			#box1{
+						width : 50px;		height : 50px;
+						background : #f00;
+						position : relative;
+						margin-top : 200px;
+						margin-left : 70px;
+						}
+		</style>
+	
+		<script src = "js/jquery-3.6.0.js"></script>
+
+			<script>
+				$(function(){
+					/*
+					$('#rightBtn').click(function(){
+						$('#box1').stop().animate({left:"+=100px"},500);
+						console.log($("#box1").offset());
+					});		// rightBtn
+					*/
+
+					$('#rightBtn').click(function(){
+						console.log($('#box1').offset().left);
+						if($("#box1").offset().left>=
+							$('body').width()-$('#box1').width() ){
+							alert($("#box1").offset().left);
+						
+						}else{
+							$("#box1").stop().animate({left:"+=100px"},500);
+						}
+					});		// rightBtn
+
+				
+					/*
+					$('#leftBtn').click(function(){
+						$('#box1').stop().animate({left:"-=100px"},500);
+						console.log($("#box1").offset());
+					});		// leftBtn
+					*/
+					$('#leftBtn').click(function(){
+						console.log('왼쪽클릭='+$("#box1").offset().left);
+						if($("#box1").offset().left<=70){
+							alert($("#box1").offset().left);
+							$("#box1").offset().left += 100 + "px";
+
+						}else{
+							$("#box1").stop().animate({left:"-=100px"},500);
+						}
+					});		// leftBtn
+
+
+					$('#upBtn').click(function(){
+						$('#box1').stop().animate({top:"-=100px"},500);
+						console.log($("#box1").offset());
+					});		// upBtn
+				
+					$('#downBtn').click(function(){
+						$('#box1').stop().animate({top:"+=100px"},500);
+						console.log($("#box1").offset());
+					});		// downBtn
+				
+					
+
+
+
+				
+				});		// end
+			
+		</script>
+	 </head>
+	 
+	 
+	 
+	 <body>
+		
+		<div id = "box1">박스</div>
+		
+		<p>
+			<button id = "leftBtn">◀</button>
+			<button id = "rightBtn">▶</button>
+			<button id = "upBtn">▲</button>
+			<button id = "downBtn">▼</button>
+		</p>
+	  
+	 </body>
+</html>
+
+<!-- 
+	버튼을 여러번 클릭하면 요소가 혼자서 움직입니다.
+	이런 현상을 없애려면
+	clearQueue() : 큐에 쌓인 효과들을 삭제
+	stop() : 현재 진행 중인 효과를 정지시킴.
+-->

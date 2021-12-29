@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+	 <head>
+	  <meta charset="UTF-8">
+	  <title>Document</title>
+	 		
+	 		<style>
+	 			
+				#floatwindow{
+										display : none;		position : absolute;	
+										width : 500px;		height : 400px;		top : 100px;		left  : 100px;
+										}
+				
+				#floatwindow a.close{
+												position : absolute;		right : 20px;		top : 1px;
+												}
+			
+				#floatwindow a.close img{border : none;}
+				
+				#floatwindow dl {
+											width : 100%;		height : 100%;		
+											background : url('images/floatwindow.png');	margin : 0;
+											}
+				
+				#floatwindow dl dt{
+												height : 25px;		line-height : 25px;		/* 줄간격 */
+												text-indent : 1em;										/* 들여쓰기 */	
+												color : white;		font-weight : bold;		cursor : move;
+												}
+				
+				#floatwindow dl dd{
+												margin : 0;		padding : 2em;		line-height : 1.5;
+												text-indent : 1em;
+												}
+	 			
+	 		</style>
+	 	
+	 
+	 		<script src = "js/jquery-3.6.0.js"></script>
+	 		<script src = "js/jquery-migrate-1.2.1.min.js"></script>
+	 
+	 			<script>
+	 
+	 				$(function(){
+						$('a.open').click(function(){		// 플로우팅 윈도우 표시를 클릭하면
+
+							$('#floatwindow').fadeIn('fast');		// 윈도우창을 나타나게함
+							return false;		// href = ""를 무력화 시킴
+						});		// open click
+
+
+						// 윈도우창의 닫기 이미지를 클릭하면 창을 사라지게 한다	
+						$('#floatwindow a.close').click(function(){	
+							$('#floatwindow').fadeOut('fast');
+							return false;
+						});		// a.close
+						// 창의 제목을 누르면 움직이는 좌표값을 얻어오기
+						// e는 현재 이벤트에 대한 정보를 갖고 있다.
+
+
+						// e.pageX		현재 페이지의 x좌표값, y좌표값 얻기
+						$('#floatwindow dl dt').mousedown(function(e){
+							$('#floatwindow').data('clickPointX',e.pageX-
+							$('#floatwindow').offset().left )
+							.data('clickPointY',e.pageY-
+							$('#floatwindow').offset().top  );
+					
+
+						// 실제로 움직임을 적용하기 위한 좌표위치
+						$(document).mousemove(function(e){
+							$('#floatwindow').css({
+								top:e.pageY-$('#floatwindow').data('clickPointY')+'px',
+								left:e.pageX-$('#floatwindow').data('clickPointX')+'px'
+							     });
+						  });	// mouse move		// 마우스 버튼이 떨어져도 드래그 처리가 끝나지 않아
+															// mouseup에서 제거해 주는 것이 필요
+						
+						}).mouseup(function(e){
+							$(document).unbind('mousemove');		// 마우스 움직임을 제거
+						
+						});		// mouse down
+
+					});		// end
+	 				
+	 			</script>
+	 </head>
+	 
+	 
+	
+		 
+	 <body>
+		
+		<a href = "#floatwindow"	class = "open">플로우팅 윈도우 표시</a>
+
+			<div id = "floatwindow">
+			
+				<a href = "#"		class = "close">
+					<img src = "images/close.png"		alt = "닫힘">
+				</a>
+
+				<dl>
+					<dt>jQuery를 이용하여 플로우팅 윈도우 만들기</dt>
+					<dd>이번에는 jQuery를 이용하여 플로우팅 윈도우...
+							윈도우를 표시할 수 있습니다.
+					</dd>
+				</dl>
+			</div>
+
+	 </body>
+</html>
+
+
+<!-- 
+
+$data(1요소, 2key, 3value)//값 설정 == $('요소').data(key, value)
+$('요소').data(key) : value값을 얻어오기
+: jquery내부에 사용자 정의 data를 저장하여 사용 할 수 있다.
+요소의 key에 value를 넣는다.
+저장된 data를 $('요소').data(key)를 불러 올 수 있다.
+
+// 요소.data(key(
+1. data를 저장할 대상 엘리먼트
+2. data 집합의 이름
+3. data 집합에 저장 할 값
+선택된 요소와 함께 연결된 data를 임의로 저장하거나 가져올 수 있다.
+		-> remove data 제거
+
+-->

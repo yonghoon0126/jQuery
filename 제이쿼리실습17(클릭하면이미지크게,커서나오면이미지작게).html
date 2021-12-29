@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+	 <head>
+	  <meta charset="UTF-8">
+	  <title>Document</title>
+		
+		<style>
+			img{
+					width:140px;
+					height:120px;
+					}
+		</style>
+	
+
+		<script src = "js/jquery-3.6.0.js"></script>
+		<script src = "js/jquery-migrate-1.4.1.min.js"></script>
+
+
+			<script>
+
+				$(function(){
+					// $('img').bind('이벤트명 이벤트명 이벤트명', function(e){처리내용});	
+					// 모든 이벤트를 동일한 처리
+					
+					// $('img').bind({함수명(이벤트명):익명함수(){}, 함수명(이벤트명):익명함수(){} });	
+					// 각 이벤트들을 다르게 처리
+
+					$('img').bind({
+						
+						// 이미지 크기 증가
+						click:function(e){
+							var $target=$(e.target);
+							$target.width($target.width()+20);
+							$target.height($target.height()+20);
+							console.log(e);
+						},
+						
+						// 이미지 크기 감소
+						mouseout:function(e){
+							var $target=$(e.target);
+							$target.width($target.width()-20);
+							$target.height($target.height()-20);
+							console.log(e);
+						}
+					
+					});bind
+				});		// end
+		
+			</script>
+	 </head>
+	 
+	 
+	 
+	 <body> 
+		<img src  = "images/photo6.jpg">
+	 </body>
+</html>
+

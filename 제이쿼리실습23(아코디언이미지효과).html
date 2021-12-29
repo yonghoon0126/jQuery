@@ -1,0 +1,95 @@
+
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+	
+	<style type="text/css">
+		
+		*{margin:0; padding:0;border:0;}
+		
+		body{background:#252422;}
+		
+		dl{width:800px;margin:50px auto;}
+		
+		/*제목줄- 이미지검정색*/
+		dt{line-height:35px;font-size:large;text-indent:3em;
+			font-weight:bold;color:white;height:35px;
+			background:url('images/background.jpg');
+		}
+		
+		/*마우스 올려 졌을때- 이미지회색*/
+		dt.over{background:url('images/background-over.jpg');
+				cursor:pointer;
+		}
+		
+		/*선택된거-이미지 오렌지색 */
+		dt.selected{background:url('images/background_selected.jpg');
+				cursor:default;color:black;
+		}
+
+		dd{height:300px;background:#d4d0c8;}
+		
+		dd p{text-indent:1em;padding:20px;}
+
+	</style>
+
+		<script src="js/jquery-1.8.1.min.js"></script>
+		
+			<script>
+	
+				$(document).ready(function(){
+				//초기화면 설정, 첫번째<dd> 를 제외한 dd를 숨기기
+					$("dd:not(:first)").css("display","none");
+				//첫번째 제목에 selected 클래스 주기
+					$('dt:first').addClass('selected');
+
+
+					//제목줄을 클릭하면 실행
+					$('dl dt').click(function(){
+						
+						//현재 선택된 요소의 다음요소dd가 숨겨져 있을때만 if문장 수행
+						if($('+dd',this).css('display') == 'none'){
+							//아코디언의 실제 동작 구현
+							//모든 dd에 대해 slideUp()을 적용  표시중인 태그를 위로 올려서 비표시로 함
+							//실행하면 현재 열려 있는 패널이 닫힘
+							$('dd').slideUp('slow');
+							
+							
+							//dd를 아래로 펼치는 효과
+							//클릭된 라벨에 다음 요소dd를 천천히 펼친다
+							$('+dd',this).slideDown('slow');
+
+					   //모든'dt'에 클래스를 삭제 해야 해당하는 제목이 오렌지로 된다 
+							$('dt').removeClass('selected');
+							$(this).addClass('selected');//지금 선택된것에 클래슬 부여해서 오렌지가 됨
+						}//if end
+					}).mouseover(function(){
+						$(this).addClass('over');
+					
+					}).mouseout(function(){
+						$(this).removeClass('over');
+					});//click end
+
+				});//ready end
+			</script>
+		 </head>
+	 
+	 
+	 <body>
+
+		<dl>
+			<dt>Step.1</dt>
+			<dd><p>The police said it would </p></dd>
+			
+			<dt>Step.2</dt>
+			<dd><p>reinvestigate the cause of runaway</p></dd>
+			
+			<dt>Step.3</dt>
+			<dd><p> Yoo Byung-eun’s death from square ...</p></dd>
+
+		
+		</dl>
+	</body>
+</html>

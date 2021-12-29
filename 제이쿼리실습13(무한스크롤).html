@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+	 <head>
+	  <meta charset="UTF-8">
+	  <title>Document</title>
+		
+			<script src = "js/jquery-3.6.0.js"></script>
+
+			<script>
+
+				$(function(){
+					// 스크롤 이벤트 발생 시 실행
+					console.log("초기스크롤"+$(window).scrollTop()+
+										"초기 윈도우"+$(window).height()+
+										"초기 문서"+$(document).height());
+
+					$(window).scroll(function(){
+					// $(window).scrolltop() : 스크롤의 높이
+					// $(window).height() : 윈도우의 높이
+					// $(document).height() : 문서의 높이
+
+					var scrollHeight=$(window).scrollTop()+$(window).height();
+					var documentHeight=$(document).height();
+
+
+					console.log("스크롤높이"+$(window).scrollTop()+
+										"윈도우 높이"+$(window).height()+
+										"문서 높이"+$(document).height());
+
+					// 스크롤의 높이와 문서의 높이가 같으면 실행
+					if(scrollHeight==documentHeight){
+						for(var i = 0; i < 10; i++){
+							$('<h1>무한 스크롤...</h1>').appendTo('body');
+						}
+					}
+					
+					});		// scroll
+
+				});		//2. end
+					
+					
+					
+				// 처음 실행 시 초기화면	
+				$(function(){
+					for(var i = 0; i <25; i++){
+						$('<h1>'+i+'무한 스크롤 초기값</h1>').appendTo('body');
+					}
+
+				});		// end
+		
+			</script>
+	 </head>
+	 
+	 
+	 
+	 <body>
+
+	
+	 </body>
+</html>
+
